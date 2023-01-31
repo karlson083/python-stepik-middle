@@ -33,7 +33,10 @@ def print_matrix_cols(matrix, rows, cols):
             print(matrix[r][c], end=' ')
         print()
 
-print_matrix_rows(create_matrix_from_list(input_list_with_enter(n*m) ,n ,m), n, m)
+matrix_output_global = create_matrix_from_list(input_list_with_enter(n*m) ,n ,m)
+print_matrix_rows(matrix_output_global, n , m)
+print()
+print_matrix_cols(matrix_output_global,n,m)
 
 ###### v2
 
