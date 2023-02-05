@@ -17,12 +17,9 @@ def max_in_area(input_matrix, q1): #Находит максимальное чи
     for i in range(len(input_matrix)):
         for j in range(i+1):
             list_tmp.append(int(input_matrix[i][j]))
-    print(list_tmp)
-    #return max(list_tmp)
+    return max(list_tmp)
 
-
-max_in_area(create_matrix_traditional_input(q),q)
-#print(max_in_area(create_matrix_traditional_input(q),q))
+print(max_in_area(create_matrix_traditional_input(q),q))
 
 
 

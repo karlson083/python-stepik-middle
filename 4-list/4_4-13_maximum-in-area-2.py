@@ -14,11 +14,10 @@ def create_matrix_traditional_input(q1): # Заполняет квадратну
 
 def max_in_area_opposite_quotter(input_matrix, q1): #Находит максимальное число области четвертей матрицы напротив друг друга
     list_tmp =[]
-    for i in range(1,q1+1):
-        for j in range(1,q1+1):
-            if i == j or i == (j * -1) or (i > j and i < (q1-1-j)) or (i<j and i> (q1-1-j)):
-                print(input_matrix[i-1][j-1])
-                list_tmp.append(int(input_matrix[i-1][j-1]))
+    for i in range(q1):
+        for j in range(q1):
+            if i == j or i+1 == ((j-q1)  * -1) or (i > j and i < (q1-1-j)) or (i<j and i> (q1-1-j)):
+                list_tmp.append(int(input_matrix[i][j]))
     return max(list_tmp)
 
 print(max_in_area_opposite_quotter(create_matrix_traditional_input(q),q))
