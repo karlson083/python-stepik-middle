@@ -16,24 +16,27 @@ def create_matrix_classic_n(n):
 
 matrix_1 = create_matrix_classic_n(n)
 
-matrix_1.reverse()
 
-def print_matrix_rows(matrix):
+
+def print_matrix_90(matrix):
     for r in range(len(matrix)):
-        for c in range(len(matrix[r])):
-            print(matrix[r][c], end=' ')
+        for c in range(len(matrix[r])-1,-1,-1):
+            print(matrix[c][r], end=' ')
         print()
 
-print_matrix_rows(matrix_1)
+print_matrix_90(matrix_1)
 
 
 
 ###### v2
+
 n = int(input())
 matrix = [input().split() for _ in range(n)]
+result = [[0] * n for _ in range(n)]
 
 for i in range(n):
-    matrix[i][i], matrix[n - i - 1][i] = matrix[n - i - 1][i], matrix[i][i]
+    for j in range(n):
+        result[i][j] = matrix[n - j - 1][i]
 
-for row in matrix:
+for row in result:
     print(*row)
