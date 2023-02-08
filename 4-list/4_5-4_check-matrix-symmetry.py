@@ -2,7 +2,7 @@ import os
 clear = lambda: os.system('cls')
 clear()
 
-n, m = int(input()), int(input())
+n = int(input())
 
 def create_matrix_classic_n(n):
     matrix_out = []
@@ -15,29 +15,30 @@ def create_matrix_classic_n(n):
     pass
 
 matrix_1 = create_matrix_classic_n(n)
-matrix_change = create_matrix_classic_n(1)
 
-matrix_out = []
-for k in range(n):
-    matrix_out.append([])
-    for l in range(len(matrix_1[k])):
-        if l == matrix_change[0][0]:
-            matrix_out[-1].append(matrix_1[k][matrix_change[0][1]])
-        elif l == matrix_change[0][1]:
-            matrix_out[-1].append(matrix_1[k][matrix_change[0][0]])
-        else:
-            matrix_out[-1].append(matrix_1[k][l])
-for m in matrix_out:
-    print(*m)
+def matrix_check_symmetry(input_matrix):
+    matrix_simmetry = "YES"
+    for i in range(len(input_matrix)):
+        for j in range(len(input_matrix[i])):
+            if input_matrix[i][j] != input_matrix[j][i]:
+                matrix_simmetry = "NO"
+                return matrix_simmetry
+    return matrix_simmetry
+
+print(matrix_check_symmetry(matrix_1))
 
 ###### v2
 
-n, m = int(input()), int(input())
+n = int(input())
 matrix = [input().split() for _ in range(n)]
-col1, col2 = [int(i) for i in input().split()]
+result = 'YES'
 
 for i in range(n):
-    matrix[i][col1], matrix[i][col2] = matrix[i][col2], matrix[i][col1]
+    for j in range(i + 1, n):
+        if matrix[i][j] != matrix[j][i]:
+            result = 'NO'
+            break
+    if result == 'NO':
+        break
 
-for row in matrix:
-    print(*row)
+print(result)
