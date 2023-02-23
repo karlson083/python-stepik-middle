@@ -3,21 +3,19 @@ clear = lambda: os.system('cls')
 clear()
 
 n, m = [int(i) for i in input().split()]
+matrixA = [[int(i) for i in input().split()] for _ in range(n)]
+input()
+m, k = [int(i) for i in input().split()]
+matrixB = [[int(i) for i in input().split()] for _ in range(m)]
+matrixC = [[0] * k for _ in range(n)]
 
-matrix_a = [input().split() for _ in range(n)]
-null = input()
-matrix_b = [input().split() for _ in range(n)]
+for i in range(n):
+    for j in range(k):
+        for q in range(m):
+            matrixC[i][j] += matrixA[i][q] * matrixB[q][j]
 
-def summ_matrix_a_b(n,m,matrix_a1,matrix_b1):
-    matrix_out = [[0] * m for _ in range(n)]
-    for i in range(n):
-        for j in range(m):
-            matrix_out[i][j] = int(matrix_a1[i][j]) + int(matrix_b1[i][j])
-    return matrix_out
-    pass
-
-for i in summ_matrix_a_b(n,m,matrix_a,matrix_b):
-    print(*i)
+for row in matrixC:
+    print(*row)
  
 ###### v2 
 
