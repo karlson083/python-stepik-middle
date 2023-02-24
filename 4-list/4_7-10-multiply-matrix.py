@@ -2,20 +2,7 @@ import os, math
 clear = lambda: os.system('cls')
 clear()
 
-n, m = [int(i) for i in input().split()]
-matrixA = [[int(i) for i in input().split()] for _ in range(n)]
-input()
-m, k = [int(i) for i in input().split()]
-matrixB = [[int(i) for i in input().split()] for _ in range(m)]
-matrixC = [[0] * k for _ in range(n)]
-
-for i in range(n):
-    for j in range(k):
-        for q in range(m):
-            matrixC[i][j] += matrixA[i][q] * matrixB[q][j]
-
-for row in matrixC:
-    print(*row)
- 
+n, m, k, x, y ,z = [int(input()) for _ in range(6)]
+print(n - x + m + k - y + z)
 ###### v2 
 
